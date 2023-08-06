@@ -22,13 +22,13 @@ function App() {
   return (
     <div className="App">
       <Card style={{margin:'20px'}}>
-      <GoogleMap
+      <GoogleMap            
                             value={setMapValues}
                             setValue={{
                               // latLng: editData?.polygon // for setting value in edit mode
                             }}
                             autocomplete
-                            polygon={false} // for controling dynamically if  user can create polygon or not
+                            polygon={true} // for controling dynamically if  user can create polygon or not
                             reset={""} // pass state here for reseting map state
                             zoom={6}
                             center={{
@@ -36,9 +36,9 @@ function App() {
                               lng: 55.296249
                             }}
                           >
-                          {/* { editDate && 
+                          { 
                             <DrawMap data={""} />  // pass which type of shape you create  for edit mode
-                          }   */}
+                          }  
                           </GoogleMap>
         
       </Card>

@@ -21,9 +21,10 @@ const containerStyle = {
 
 const _type: any = "polygon";
 
-function ScriptLoaded(props: any) {
+function ScriptLoaded(props: any) { 
+  const api_key:any=  process.env.REACT_APP_GOOGLEMAP_KEY
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: "AIzaSyDGRM5g2oOCQ5Zs6GFzJ2xTXgF5ME_WB3s", // ,
+    googleMapsApiKey:api_key, // ,
     libraries: ["drawing", "places", "visualization"],
     // ...otherOptions
   });
@@ -167,7 +168,7 @@ function ScriptLoaded(props: any) {
     }
 
     const onPlaceChanged = () => {
-      map.fitBounds(searchLocation?.getPlace().geometry.viewport);
+      map?.fitBounds(searchLocation?.getPlace().geometry.viewport);
       setMapCenter(searchLocation?.getPlace()?.geometry?.location);
       setMapData({
         ...mapData,
@@ -204,7 +205,7 @@ function ScriptLoaded(props: any) {
           }}
         >
           {/* <Marker position={mapCenter} /> */}
-          {props.polygon && true && (
+          {props.polygon && (
             <DrawingManager
               drawingMode={_type}
               onOverlayComplete={onOverlayComplete}
